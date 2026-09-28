@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>La Cible Mancielloise — Tir sportif</title>
+  <meta name="description" content="Site de La Cible Mancielloise : actualités, calendrier, résultats et informations du club.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#accueil"><span class="target" aria-hidden="true"></span><span>La Cible<br><b>Mancielloise</b></span></a>
+  <button class="menu" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+  <nav><a href="#club">Le club</a><a href="#actualites">Actualités</a><a href="#calendrier">Calendrier</a><a href="#resultats">Résultats</a><a href="#galerie">Galerie</a><a href="#contact">Infos pratiques</a></nav>
+</header>
+<main>
+<section id="accueil" class="hero">
+  <div class="hero-copy"><p class="eyebrow">TIR SPORTIF • PASSION • PROGRESSION</p><h1>La précision<br>se construit.</h1>
+  <p>Bienvenue sur le site de La Cible Mancielloise. Retrouvez ici la vie du club, les compétitions, les résultats et les informations utiles.</p>
+  <div class="actions"><a class="btn primary" href="#calendrier">Prochains rendez-vous</a><a class="btn" href="#resultats">Voir les résultats</a></div></div>
+  <div class="hero-art" aria-hidden="true"><div class="rings"><i></i></div><span>10</span></div>
+</section>
+<section class="quick" id="club"><div><span>Club affilié</span><strong>FFTir</strong></div><div><span>Territoire</span><strong>CODEP 54</strong></div><div><span>Ligue</span><strong>Lorraine</strong></div></section>
+
+<section id="actualites" class="section"><div class="section-head"><div><p class="eyebrow">VIE DU CLUB</p><h2>Actualités</h2></div><p>Les dernières informations du club.</p></div><div id="newsGrid" class="cards"></div></section>
+
+<section id="calendrier" class="section alt"><div class="section-head"><div><p class="eyebrow">À VOS AGENDAS</p><h2>Calendrier</h2></div><p>Challenges, compétitions et rendez-vous à venir.</p></div><div id="eventList" class="event-list"></div></section>
+
+<section id="resultats" class="section"><div class="section-head"><div><p class="eyebrow">COMPÉTITIONS</p><h2>Résultats</h2></div><p>Classements, séries et podiums des tireurs du club.</p></div>
+<div class="filters"><select id="competitionFilter" aria-label="Filtrer par compétition"><option value="">Toutes les compétitions</option></select><select id="categoryFilter" aria-label="Filtrer par catégorie"><option value="">Toutes les catégories</option></select><input id="shooterFilter" placeholder="Rechercher un tireur…" aria-label="Rechercher un tireur"></div>
+<div id="resultsGrid" class="results-grid"></div></section>
+
+<section id="galerie" class="section alt"><div class="section-head"><div><p class="eyebrow">EN IMAGES</p><h2>Galerie</h2></div><p>Photos des compétitions, entraînements et événements.</p></div><div id="galleryGrid" class="gallery"></div></section>
+
+<section id="contact" class="section contact"><div><p class="eyebrow">NOUS REJOINDRE</p><h2>Infos pratiques</h2><p>Les horaires, coordonnées et modalités d'accueil seront publiés ici après validation par le club.</p></div><div class="info-box"><b>Informations officielles</b><p>Cette première version ne publie aucune coordonnée non vérifiée. Les informations validées seront ajoutées directement depuis ChatGPT.</p></div></section>
+</main>
+<footer><div class="brand small"><span class="target"></span><span>La Cible <b>Mancielloise</b></span></div><p>Club de tir sportif • CODEP 54 • Ligue Lorraine • FFTir</p><p class="muted">Site maintenu avec historique des modifications via GitHub.</p></footer>
+<script src="data/content.js"></script><script src="app.js"></script>
+</body></html>
