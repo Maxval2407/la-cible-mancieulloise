@@ -1,0 +1,11 @@
+const D=window.CLUB_DATA||{news:[],events:[],results:[],albums:[]};
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+document.querySelector(".menu").onclick=e=>{const n=document.querySelector("nav");n.classList.toggle("open");e.currentTarget.setAttribute("aria-expanded",n.classList.contains("open"))};
+document.querySelectorAll("nav a").forEach(a=>a.onclick=()=>document.querySelector("nav").classList.remove("open"));
+newsGrid.innerHTML=D.news.map(n=>`<article class="card"><span class="date">${esc(n.date)}</span><h3>${esc(n.title)}</h3><p>${esc(n.text)}</p></article>`).join("");
+eventList.innerHTML=D.events.sort((a,b)=>a.date.localeCompare(b.date)).map(e=>`<article class="event"><div class="day">${esc(e.label)}</div><div><h3>${esc(e.title)}</h3><p>${esc(e.place)}${e.time?" • "+esc(e.time):""}</p></div><span class="badge">À venir</span></article>`).join("");
+galleryGrid.innerHTML=D.albums.map(a=>`<div class="album"><div><strong>${esc(a.title)}</strong><p>${esc(a.subtitle)}</p></div></div>`).join("");
+const cf=document.getElementById("competitionFilter"),catf=document.getElementById("categoryFilter"),sf=document.getElementById("shooterFilter");
+[...new Set(D.results.map(r=>r.competition))].forEach(v=>cf.add(new Option(v,v)));[...new Set(D.results.map(r=>r.category))].forEach(v=>catf.add(new Option(v,v)));
+function renderResults(){const rs=D.results.filter(r=>(!cf.value||r.competition===cf.value)&&(!catf.value||r.category===catf.value)&&(!sf.value||r.shooter.toLowerCase().includes(sf.value.toLowerCase())));resultsGrid.innerHTML=rs.length?rs.map(r=>{const medal=r.rank==1?"🥇":r.rank==2?"🥈":r.rank==3?"🥉":"";return `<article class="result"><div class="rank">${medal||"#"+esc(r.rank)}</div><div><b>${esc(r.shooter)}</b><div class="series">${esc(r.category)} • ${esc(r.date||"")}</div></div><div class="competition">${esc(r.competition)}</div><div class="series">Séries : ${esc((r.series||[]).join(" · "))}</div><div class="total">${esc(r.total)}</div></article>`}).join(""):`<div class="empty">Aucun résultat officiel n'est encore publié. Dès que vous nous fournissez les résultats, ils apparaîtront ici avec catégorie, classement, séries, total et médailles pour les trois premières places.</div>`}
+[cf,catf,sf].forEach(x=>x.addEventListener("input",renderResults));renderResults();
